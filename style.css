@@ -1,0 +1,267 @@
+/* ==========================================
+   1. リセット & 基本設定
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "ヒラギノ角ゴ Pro W3", Osaka, メイリオ, sans-serif;
+  line-height: 1.7;
+  color: #333333;
+  background-color: #f9fdfa;
+}
+
+/* ==========================================
+   2. 共通レイアウト設定（超重要！）
+   ========================================== */
+/* 各セクションの上下に程よく間隔をあける */
+section {
+  padding: 80px 0;
+}
+
+/* 偶数番目のセクションは背景をうっすらグレーにして区切りをつける */
+section:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* 画面中央に寄せる共通の箱 */
+.container {
+  max-width: 800px; /* 横幅の上限 */
+  width: 100%;
+  margin: 0 auto;   /* 中央寄せ */
+  padding: 0 20px;  /* スマホ用の左右の余白 */
+}
+
+/* 共通の見出しデザイン */
+h2 {
+  font-size: 1.8rem;
+  color: #1A5336;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ==========================================
+   3. ファーストビュー（FV）
+   ========================================== */
+.fv {
+  background: linear-gradient(135deg, #eaf4ee 0%, #ffffff 60%, #f2f8f4 100%);
+  padding: 90px 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.fv .sub-title {
+  display: inline-block;
+  background-color: #1A5336;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.fv h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1A5336;
+  line-height: 1.5;
+  margin-bottom: 36px;
+}
+
+.fv .btn {
+  display: inline-block;
+  background-color: #E06A3B;
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 18px 36px;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(224, 106, 59, 0.3);
+  transition: all 0.3s ease;
+}
+
+.fv .btn:hover {
+  background-color: #cc5b2d;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(224, 106, 59, 0.45);
+}
+
+/* ==========================================
+   4. 各セクションのコンテンツデザイン
+   ========================================== */
+/* 悩み訴求 (PAIN) */
+.pain-list {
+  background-color: #ffffff;
+  border: 2px solid #e0eae3;
+  border-radius: 12px;
+  padding: 30px 40px;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.pain-list li {
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.pain-list li::before {
+  content: "✔";
+  color: #E06A3B;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.pain-lead {
+  text-align: center;
+  font-weight: bold;
+  color: #E06A3B;
+  font-size: 1.1rem;
+}
+
+/* 強み (SOLUTION) のカード */
+.card {
+  background-color: #ffffff;
+  border-left: 5px solid #1A5336;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: #1A5336;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* お客様の声 (PROOF) */
+.voice {
+  background-color: #f2f8f4;
+  padding: 20px 24px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.voice-title {
+  font-weight: bold;
+  color: #1A5336;
+  margin-bottom: 6px;
+}
+
+/* FAQ */
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 0;
+}
+
+.question {
+  font-weight: bold;
+  color: #1A5336;
+}
+
+.answer {
+  margin-top: 6px;
+  color: #555;
+}
+
+/* お問い合わせ (CTA) */
+.cta {
+  background-color: #1A5336;
+  color: black;
+  text-align: center;
+}
+
+.cta h2 {
+  color: black;
+}
+
+.price {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.price strong {
+  color: #E06A3B;
+  font-size: 1.6rem;
+  background-color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+.form {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #E06A3B;
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #cc5b2d;
+}
+
+/* ==========================================
+   5. スマホ表示対応（レスポンシブ）
+   ========================================== */
+@media (max-width: 768px) {
+  section {
+    padding: 50px 0;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+  }
+
+  .fv h1 {
+    font-size: 1.45rem;
+  }
+
+  .pain-list {
+    padding: 20px;
+  }
+
+  .form {
+    padding: 20px 16px;
+  }
+}
