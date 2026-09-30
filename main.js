@@ -30,49 +30,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (form) {
     form.addEventListener("submit", (e) => {
-      // 本来の送信（ページリロード）をキャンセル
       e.preventDefault();
 
-      // チェック対象の入力項目をまとめて取得
       const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="date"]');
       let isValid = true;
 
       inputs.forEach(input => {
-        // 親要素（.form-group）を取得
         const formGroup = input.parentElement;
 
-        // 以前表示したエラーメッセージがあれば削除（重複表示の防止）
+        // すでに表示されているエラーメッセージとエラー状態をリセット
+        formGroup.classList.remove("is-error");
         const existingError = formGroup.querySelector(".error-message");
         if (existingError) {
           existingError.remove();
         }
 
-        // 未入力の場合の判定（トリムして空白のみも判定）
+        // 未入力チェック
         if (input.value.trim() === "") {
           isValid = false;
 
-          // 1. 枠線を赤色に変更
-          input.style.borderColor = "#e06a3b";
+          // 親要素にエラー表示用クラスを追加（見た目はCSSで制御）
+          formGroup.classList.add("is-error");
 
-          // 2. 赤字のエラーメッセージ要素を作成して入力欄の下に追加
+          // エラー文言の作成
           const errorMessage = document.createElement("p");
           errorMessage.className = "error-message";
           errorMessage.textContent = "※必須項目です";
-          errorMessage.style.color = "#e06a3b";
-          errorMessage.style.fontSize = "0.85rem";
-          errorMessage.style.marginTop = "4px";
 
           formGroup.appendChild(errorMessage);
-        } else {
-          // 入力済みの場合は枠線を元に戻す
-          input.style.borderColor = "#ccc";
         }
       });
 
-      // 全項目が正しく入力されている場合
       if (isValid) {
         alert("体験レッスンのご予約ありがとうございます。");
-        form.reset(); // フォームをクリア
+        form.reset();
       }
     });
   }
